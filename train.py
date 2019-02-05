@@ -71,7 +71,7 @@ with tf.Session() as sess:
                 [model.global_step, model.optimizer, model.outputs_state_tensor, model.loss, model.merged_summary_op], feed_dict=feed_dict)
             summary_string_writer.add_summary(summary_string, gs)
 
-            if gs % 10 == 0:
+            if gs % 600 == 0:
                 logging.debug('step [{0}] loss [{1}]'.format(gs, l))
                 save_path = saver.save(sess, os.path.join(
                     FLAGS.output_dir, "model.ckpt"), global_step=gs)
